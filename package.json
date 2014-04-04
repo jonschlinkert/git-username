@@ -1,7 +1,7 @@
 {
   "name": "git-username",
-  "description": "Get the username from a git remote origin URL.",
-  "version": "0.1.1",
+  "description": "Extract the username from a git remote origin URL.",
+  "version": "0.1.2",
   "homepage": "https://github.com/jonschlinkert/git-username",
   "author": {
     "name": "Jon Schlinkert",

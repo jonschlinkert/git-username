@@ -1,6 +1,8 @@
 # git-username [![NPM version](https://badge.fury.io/js/git-username.png)](http://badge.fury.io/js/git-username)
 
-> Get the username from a git remote origin URL.
+> Extract the username from a git remote origin URL.
+
+This differs from [git-user-name](https://github.com/jonschlinkert/git-user-name), which provides name of the current user from git config.
 
 ## Install
 Install with [npm](npmjs.org):
@@ -17,6 +19,16 @@ var username = require('git-username');
 console.log(username);
 //=> jonschlinkert
 ```
+
+## Related
+Here are a few related projects:
+                                                 
++ [git-branch](https://github.com/jonschlinkert/git-branch): Get the current branch for a local git repository   
++ [git-repo-name](https://github.com/jonschlinkert/git-repo-name): Get the repository name from the git remote origin URL   
++ [git-user-email](https://github.com/jonschlinkert/git-user-email): Get the current user's git email address.   
++ [git-user-name](https://github.com/jonschlinkert/git-user-name): Get the name of the current user from git config, at the project or global scope, depending on what git uses in the current context.   
++ [git-username](https://github.com/jonschlinkert/git-username): Get the username from a git remote origin URL.   
++ [github-repo-url](https://github.com/jonschlinkert/github-repo-url): Extract a GitHub project's URL from its git repository URL.                                                                                                                                            
 
 ## Author
 
