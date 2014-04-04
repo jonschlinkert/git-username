@@ -6,7 +6,7 @@
 Install with [npm](npmjs.org):
 
 ```bash
-npm i git-username --save-dev
+npm i git-username --save
 ```
 
 
@@ -15,6 +15,7 @@ npm i git-username --save-dev
 ```js
 var username = require('git-username');
 console.log(username);
+//=> jonschlinkert
 ```
 
 ## Author

@@ -7,19 +7,13 @@
 
 const url = require('url');
 const origin = require('remote-origin-url');
+const gitUrl = require('github-url-from-git');
 
 
 /**
- * Get the remote origin url for a local git repository
- */
-
-var remoteOriginURL = origin.url().replace(/\.git$/, '');
-
-
-/**
- * Get the username from a GitHub remote origin URL
+ * Get the username from the GitHub remote origin URL
  */
 
 module.exports = (function() {
-  return url.parse(remoteOriginURL).path.split('/')[1];
+  return url.parse(gitUrl(origin.url())).path.split('/')[1];
 })();

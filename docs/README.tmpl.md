@@ -3,13 +3,14 @@
 > {%= description %}
 
 ## Install
-{%= include("install") %}
+{%= include("install", {save: '--save'}) %}
 
 ## Usage
 
 ```js
 var username = require('git-username');
 console.log(username);
+//=> jonschlinkert
 ```
 
 ## Author
