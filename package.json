@@ -1,7 +1,7 @@
 {
   "name": "git-username",
   "description": "Extract the username from a git remote origin URL.",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "homepage": "https://github.com/jonschlinkert/git-username",
   "author": {
     "name": "Jon Schlinkert",
@@ -40,7 +40,8 @@
     "verb": "~0.2.0"
   },
   "dependencies": {
+    "github-url-from-git": "~1.1.1",
     "remote-origin-url": "~0.2.1",
-    "github-url-from-git": "~1.1.1"
+    "verbalize": "^0.1.2"
   }
 }

@@ -8,12 +8,17 @@
 const url = require('url');
 const origin = require('remote-origin-url');
 const gitUrl = require('github-url-from-git');
-
+const log = require('verbalize');
 
 /**
  * Get the username from the GitHub remote origin URL
  */
 
 module.exports = (function() {
+  if (/\bhas not been defined\b/.test(origin.url())) {
+    log.warn("  Can't calculate git-username. This probably means that");
+    log.warn("  a git remote origin has not been defined.");
+    return '';
+  }
   return url.parse(gitUrl(origin.url())).path.split('/')[1];
 })();
