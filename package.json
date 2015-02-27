@@ -1,7 +1,7 @@
 {
   "name": "git-username",
-  "description": "Extract the username from a git remote origin URL.",
-  "version": "0.2.0",
+  "description": "Get the username from a git remote origin URL.",
+  "version": "0.3.1",
   "homepage": "https://github.com/jonschlinkert/git-username",
   "author": {
     "name": "Jon Schlinkert",
@@ -14,34 +14,37 @@
   "bugs": {
     "url": "https://github.com/jonschlinkert/git-username/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/jonschlinkert/git-username/blob/master/LICENSE-MIT"
-    }
-  ],
-  "keywords": [
-    "docs",
-    "documentation",
-    "generate",
-    "generator",
-    "markdown",
-    "templates",
-    "verb"
+  "license": {
+    "type": "MIT",
+    "url": "https://github.com/jonschlinkert/git-username/blob/master/LICENSE"
+  },
+  "files": [
+    "index.js"
   ],
   "main": "index.js",
   "engines": {
     "node": ">=0.8"
   },
   "scripts": {
-    "test": "mocha -R test"
-  },
-  "devDependencies": {
-    "verb": "~0.2.0"
+    "test": "mocha"
   },
   "dependencies": {
-    "github-url-from-git": "~1.1.1",
-    "remote-origin-url": "~0.2.1",
-    "verbalize": "^0.1.2"
-  }
+    "chalk": "^1.0.0",
+    "remote-origin-url": "^0.3.0"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  },
+  "keywords": [
+    "parse",
+    "git",
+    "name",
+    "origin",
+    "remote",
+    "remote origin url",
+    "remote origin",
+    "url",
+    "user",
+    "username"
+  ]
 }
