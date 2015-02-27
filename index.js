@@ -1,24 +1,37 @@
 /*!
  * git-username <https://github.com/jonschlinkert/git-username>
  *
- * Copyright (c) 2014 Jon Schlinkert
- * Licensed under the MIT License (MIT)
+ * Copyright (c) 2014-2015, Jon Schlinkert.
+ * Licensed under the MIT License.
  */
 
-const url = require('url');
-const origin = require('remote-origin-url');
-const gitUrl = require('github-url-from-git');
-const log = require('verbalize');
+var url = require('url');
+var chalk = require('chalk');
+var origin = require('remote-origin-url');
+
+/**
+ * Expose `username`
+ */
+
+module.exports = username;
 
 /**
  * Get the username from the GitHub remote origin URL
  */
 
-module.exports = (function() {
-  if (/\bhas not been defined\b/.test(origin.url())) {
-    log.warn("  Can't calculate git-username. This probably means that");
-    log.warn("  a git remote origin has not been defined.");
-    return '';
+function username(cwd) {
+  var repo = origin.sync(cwd);
+  if (!repo) {
+    console.error(chalk.red('  Can\'t calculate git-username, which probably means that\n  a git remote origin has not been defined.'));
   }
-  return url.parse(gitUrl(origin.url())).path.split('/')[1];
-})();
+
+  var o = url.parse(repo);
+  var path = o.path;
+
+  if (path.length && path.charAt(0) === '/') {
+    path = path.slice(1);
+  }
+
+  path = path.split('/')[0];
+  return path;
+}
