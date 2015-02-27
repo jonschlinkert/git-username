@@ -14,4 +14,8 @@ describe('username', function () {
   it('should return the username from a git remote origin url:', function () {
     assert(username() === 'jonschlinkert');
   });
+
+  it('should return null when not found:', function () {
+    assert(username('foo') === null);
+  });
 });

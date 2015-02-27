@@ -19,10 +19,14 @@ module.exports = username;
  * Get the username from the GitHub remote origin URL
  */
 
-function username(cwd) {
+function username(cwd, verbose) {
   var repo = origin.sync(cwd);
-  if (!repo) {
+  if (!repo && verbose) {
     console.error(chalk.red('  Can\'t calculate git-username, which probably means that\n  a git remote origin has not been defined.'));
+  }
+
+  if (!repo) {
+    return null;
   }
 
   var o = url.parse(repo);
