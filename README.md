@@ -37,7 +37,7 @@ Pull requests and stars are always welcome. For bugs and feature requests, [plea
 * [git-branch](https://github.com/jonschlinkert/git-branch): Get the current branch for a local git repository.
 * [git-repo-name](https://github.com/jonschlinkert/git-repo-name): Get the repository name from the git remote origin URL.
 * [git-user-email](https://github.com/jonschlinkert/git-user-email): Get the git email address of the current user.
-* [git-user-name](https://github.com/jonschlinkert/git-user-name): Get the name of the current user from git config, at the project or global scope, depending on what git uses in the current context.
+* [git-user-name](https://github.com/jonschlinkert/git-user-name): Get a user's name from git config at the project or global scope, depending on what git uses in the current context.
 * [git-username](https://github.com/jonschlinkert/git-username): Get the username from a git remote origin URL.
 * [github-repo-url](https://github.com/jonschlinkert/github-repo-url): Extract a GitHub project's URL from its git repository URL.                                           
 
