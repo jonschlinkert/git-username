@@ -29,20 +29,21 @@
     "test": "mocha"
   },
   "dependencies": {
-    "chalk": "^1.0.0",
+    "ansi-red": "^0.1.1",
+    "parse-github-url": "^0.1.1",
     "remote-origin-url": "^0.4.0"
   },
   "devDependencies": {
     "mocha": "*"
   },
   "keywords": [
-    "parse",
     "git",
     "name",
     "origin",
+    "parse",
     "remote",
-    "remote origin url",
     "remote origin",
+    "remote origin url",
     "url",
     "user",
     "username"
