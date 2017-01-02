@@ -23,6 +23,7 @@
     "remote-origin-url": "^0.4.0"
   },
   "devDependencies": {
+    "gulp-format-md": "^0.1.11",
     "mocha": "^3.2.0"
   },
   "keywords": [
@@ -36,5 +37,25 @@
     "url",
     "user",
     "username"
-  ]
+  ],
+  "verb": {
+    "toc": false,
+    "layout": "default",
+    "tasks": [
+      "readme"
+    ],
+    "plugins": [
+      "gulp-format-md"
+    ],
+    "lint": {
+      "reflinks": true
+    },
+    "related": {
+      "list": []
+    },
+    "reflinks": [
+      "verb",
+      "verb-generate-readme"
+    ]
+  }
 }
