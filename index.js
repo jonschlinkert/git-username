@@ -6,7 +6,6 @@
  */
 
 var url = require('url');
-var chalk = require('chalk');
 var origin = require('remote-origin-url');
 
 /**
@@ -22,7 +21,7 @@ module.exports = username;
 function username(cwd, verbose) {
   var repo = origin.sync(cwd);
   if (!repo && verbose) {
-    console.error(chalk.red('  Can\'t calculate git-username, which probably means that\n  a git remote origin has not been defined.'));
+    console.error('  Can\'t calculate git-username, which probably means that\n  a git remote origin has not been defined.');
   }
 
   if (!repo) {
@@ -35,7 +34,7 @@ function username(cwd, verbose) {
   if (path.length && path.charAt(0) === '/') {
     path = path.slice(1);
   } else {
-    var match = /^git@\S+:(\S+)\//.exec(path)
+    var match = /^git@\S+:(\S+)\//.exec(path);
     if (match && match[1]) {
       path = match[1];
     }

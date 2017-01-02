@@ -7,15 +7,16 @@
 
 'use strict';
 
+require('mocha');
 var assert = require('assert');
 var username = require('./');
 
 describe('username', function () {
   it('should return the username from a git remote origin url:', function () {
-    assert(username() === 'jonschlinkert');
+    assert.equal(username(), 'jonschlinkert');
   });
 
   it('should return null when not found:', function () {
-    assert(username('foo') === null);
+    assert.equal(username('foo'), null);
   });
 });
