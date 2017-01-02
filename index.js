@@ -34,6 +34,11 @@ function username(cwd, verbose) {
 
   if (path.length && path.charAt(0) === '/') {
     path = path.slice(1);
+  } else {
+    var match = /^git@\S+:(\S+)\//.exec(path)
+    if (match && match[1]) {
+      path = match[1];
+    }
   }
 
   path = path.split('/')[0];
