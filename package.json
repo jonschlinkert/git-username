@@ -3,21 +3,12 @@
   "description": "Get the username from a git remote origin URL.",
   "version": "0.4.0",
   "homepage": "https://github.com/jonschlinkert/git-username",
-  "author": {
-    "name": "Jon Schlinkert",
-    "url": "http://github.com/https://github.com/jonschlinkert/"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/jonschlinkert/git-username.git"
-  },
+  "author": "Jon Schlinkert (http://github.com/https://github.com/jonschlinkert)",
+  "repository": "jonschlinkert/git-username",
   "bugs": {
     "url": "https://github.com/jonschlinkert/git-username/issues"
   },
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/jonschlinkert/git-username/blob/master/LICENSE"
-  },
+  "license": "MIT",
   "files": [
     "index.js"
   ],
@@ -29,20 +20,19 @@
     "test": "mocha"
   },
   "dependencies": {
-    "chalk": "^1.0.0",
     "remote-origin-url": "^0.4.0"
   },
   "devDependencies": {
-    "mocha": "*"
+    "mocha": "^3.2.0"
   },
   "keywords": [
-    "parse",
     "git",
     "name",
     "origin",
+    "parse",
     "remote",
-    "remote origin url",
     "remote origin",
+    "remote origin url",
     "url",
     "user",
     "username"
