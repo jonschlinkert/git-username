@@ -1,39 +1,51 @@
 /*!
  * git-username <https://github.com/jonschlinkert/git-username>
  *
- * Copyright (c) 2014-2015, Jon Schlinkert.
- * Licensed under the MIT License.
+ * Copyright (c) 2014-2018, Jon Schlinkert.
+ * Released under the MIT License.
  */
 
 var url = require('url');
+var path = require('path');
 var origin = require('remote-origin-url');
 
-/**
- * Get the username from the GitHub remote origin URL
- */
-
-module.exports = function username(cwd, verbose) {
-  var repo = origin.sync(cwd);
-  if (!repo && verbose) {
-    console.error('  Can\'t calculate git-username, which probably means that\n  a git remote origin has not been defined.');
+module.exports = function(cwd, options) {
+  if (typeof cwd !== 'string') {
+    options = cwd;
+    cwd = (options && options.cwd) || process.cwd();
   }
 
-  if (!repo) {
+  var dir = path.join(stripGitConfig(cwd), '.git/config');
+  var repoPath = origin.sync(dir);
+
+  if (!repoPath) {
+    if (options && options.strict === true) {
+      throw new Error('cannot resolve git remote origin url, this probably means one does not exist or .git has not been initialized');
+    }
     return null;
   }
 
-  var o = url.parse(repo);
-  var path = o.path;
+  var parsed = url.parse(repoPath);
+  var parsedPath = parsed.path;
 
-  if (path.length && path.charAt(0) === '/') {
-    path = path.slice(1);
-  } else {
-    var match = /^git@[^:\s]+:(\S+)\//.exec(path);
-    if (match && match[1]) {
-      path = match[1];
-    }
+  if (parsedPath.length && parsedPath.charAt(0) === '/') {
+    return parsedPath.slice(1, parsedPath.indexOf('/', 1));
   }
 
-  path = path.split('/')[0];
-  return path;
+  var match = /^git@[^\s:]+:([^\s/]+)\//.exec(parsedPath);
+  if (match && match[1]) {
+    return match[1];
+  }
+
+  return null;
+};
+
+function stripGitConfig(filepath) {
+  if (path.basename(filepath) === 'config') {
+    filepath = path.dirname(filepath);
+  }
+  if (path.basename(filepath) === '.git') {
+    filepath = path.dirname(filepath);
+  }
+  return filepath;
 }
