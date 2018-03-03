@@ -8,6 +8,7 @@
 var url = require('url');
 var path = require('path');
 var origin = require('remote-origin-url');
+var parse = require('parse-github-url');
 
 module.exports = function(cwd, options) {
   if (typeof cwd !== 'string') {
@@ -25,16 +26,9 @@ module.exports = function(cwd, options) {
     return null;
   }
 
-  var parsed = url.parse(repoPath);
-  var parsedPath = parsed.path;
-
-  if (parsedPath.length && parsedPath.charAt(0) === '/') {
-    return parsedPath.slice(1, parsedPath.indexOf('/', 1));
-  }
-
-  var match = /^git@[^\s:]+:([^\s/]+)\//.exec(parsedPath);
-  if (match && match[1]) {
-    return match[1];
+  var parsed = parse(repoPath);
+  if (parsed && parsed.owner) {
+    return parsed.owner;
   }
 
   return null;

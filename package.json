@@ -1,6 +1,6 @@
 {
   "name": "git-username",
-  "description": "Get the username from a git/GitHub remote origin URL.",
+  "description": "Get the username (or 'owner' name) from a git/GitHub remote origin URL.",
   "version": "0.5.1",
   "homepage": "https://github.com/jonschlinkert/git-username",
   "author": "Jon Schlinkert (http://github.com/https://github.com/jonschlinkert)",
@@ -20,6 +20,7 @@
     "test": "mocha"
   },
   "dependencies": {
+    "parse-github-url": "^1.0.2",
     "remote-origin-url": "^1.0.0"
   },
   "devDependencies": {
